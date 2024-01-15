@@ -14,10 +14,7 @@ public struct Constants {
 
     /// The library's custom URL scheme.
     public static let urlScheme: String = "enlighten"
-    /// The name of the Enlighten spotlight controller's background color in the asset catalog.
-    public static let spotlightControllerBackgroundColorName = "EnlightenSpotlightControllerBackground"
     /// The name of the `DownView` template bundle.
-    static let enlightenDownViewBundleName: String = "EnlightenDownView"
 }
 
 public struct CSSConstants {

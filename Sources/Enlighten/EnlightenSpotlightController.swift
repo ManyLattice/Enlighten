@@ -279,7 +279,7 @@ open class EnlightenSpotlightController: NSViewController {
 
         let iris = currentIris
         let completionHandler: () -> Void = {
-            self.delegate?.spotlightControllerWillShow?(stage: iris.currentStage,
+            self.delegate?.spotlightControllerWillShow(stage: iris.currentStage,
                                                         in: iris,
                                                         navigating: .initial)
             self.updateSpotlight()
@@ -328,7 +328,7 @@ open class EnlightenSpotlightController: NSViewController {
             self.animatableSpotlightView.reset()
             self.imageMaskView.reset()
 
-            self.delegate?.spotlightControllerDidDismiss?()
+            self.delegate?.spotlightControllerDidDismiss()
         })
 
         localEventMonitors.compactMap({ $0 }).forEach { NSEvent.removeMonitor($0) }
@@ -437,7 +437,7 @@ extension EnlightenSpotlightController {
 
         if currentIris.hasNextStage {
             // Plus one because the internal index has not been incremented yet.
-            delegate?.spotlightControllerWillShow?(stage: currentIris.currentStage + 1,
+            delegate?.spotlightControllerWillShow(stage: currentIris.currentStage + 1,
                                                    in: currentIris,
                                                    navigating: .forward)
 
@@ -461,7 +461,7 @@ extension EnlightenSpotlightController {
 
         currentIris.reset()
 
-        delegate?.spotlightControllerWillShow?(stage: currentIris.currentStage,
+        delegate?.spotlightControllerWillShow(stage: currentIris.currentStage,
                                                in: currentIris,
                                                navigating: .forward)
 
@@ -476,7 +476,7 @@ extension EnlightenSpotlightController {
 
         if currentIris.hasPreviousStage {
             // Minus one because the internal index has not been decremented yet.
-            delegate?.spotlightControllerWillShow?(stage: currentIris.currentStage - 1,
+            delegate?.spotlightControllerWillShow(stage: currentIris.currentStage - 1,
                                                    in: currentIris,
                                                    navigating: .backward)
 
@@ -500,7 +500,7 @@ extension EnlightenSpotlightController {
         previousIrisIndex = currentIrisIndex
         currentIrisIndex = max(0, currentIrisIndex - 1)
 
-        delegate?.spotlightControllerWillShow?(stage: currentIris.currentStage,
+        delegate?.spotlightControllerWillShow(stage: currentIris.currentStage,
                                                in: currentIris,
                                                navigating: .backward)
 
@@ -751,7 +751,7 @@ extension EnlightenSpotlightController: Resettable {
 
 extension EnlightenSpotlightController: EnlightenPopoverDelegate {
     public func enlightenPopoverFailedToLoad(downError: Error) -> String? {
-        let backupString = delegate?.spotlightControllerFailedToLoad?(markdownString: currentIris.currentMarkdownString,
+        let backupString = delegate?.spotlightControllerFailedToLoad(markdownString: currentIris.currentMarkdownString,
                                                                       for: currentIris,
                                                                       with: downError)
         if let backupString = backupString {

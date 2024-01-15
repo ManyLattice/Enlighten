@@ -11,12 +11,7 @@ import Cocoa
 extension NSColor {
     /// The background color of the Enlighten spotlight controller.
     public static var spotlightControllerBackground: NSColor = {
-        if #available(OSX 10.13, *) {
-            return NSColor(named: Constants.spotlightControllerBackgroundColorName,
-                           bundle: Bundle(for: EnlightenSpotlightController.self))!
-        } else {
-            return NSColor.black.withAlphaComponent(0.7)
-        }
+        return NSColor.black.withAlphaComponent(0.7)
     }()
 
     /// - Returns: The hexadecimal web color code with a leading number sign (#).

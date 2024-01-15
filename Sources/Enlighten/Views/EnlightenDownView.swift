@@ -77,18 +77,11 @@ open class EnlightenDownView: DownView {
                          options: EnlightenMarkdownOptions = .default,
                          didLoadSuccessfully: DownViewClosure?) throws {
         maxWidth = frame.width
-        var bundle = templateBundle
-
-        if bundle == nil {
-            let bundleURL = Bundle(for: EnlightenDownView.self)
-                .url(forResource: Constants.enlightenDownViewBundleName, withExtension: "bundle")!
-            bundle = Bundle(url: bundleURL)!
-        }
 
         try super.init(frame: NSRect(origin: frame.origin, size: CGSize(width: frame.width, height: 1000)),
                        markdownString: markdownString,
                        openLinksInBrowser: openLinksInBrowser,
-                       templateBundle: bundle,
+                       templateBundle: templateBundle,
                        configuration: configuration,
                        options: options,
                        didLoadSuccessfully: didLoadSuccessfully)
