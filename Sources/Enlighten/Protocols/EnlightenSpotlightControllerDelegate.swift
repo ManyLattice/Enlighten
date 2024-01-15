@@ -9,7 +9,7 @@
 import Foundation
 
 @objc
-public protocol EnlightenSpotlightControllerDelegate: class {
+public protocol EnlightenSpotlightControllerDelegate: AnyObject {
     /// Invoked before the controller shows a stage (Markdown string).
     ///
     /// - Parameters:

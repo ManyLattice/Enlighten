@@ -11,7 +11,7 @@ import Down
 
 /// A set of optional methods that Enlighten popover delegates can implement to receive events.
 @objc
-public protocol EnlightenPopoverDelegate: class {
+public protocol EnlightenPopoverDelegate: AnyObject {
     /// Invoked when a Markdown string fails to load, this method optionally returns a replacement.
     ///
     /// - Parameter downError: The `DownErrors` error that was thrown.
