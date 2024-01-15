@@ -69,7 +69,7 @@ open class EnlightenDownView: DownView {
 
     // MARK: - Initializers
 
-    public override init(frame: CGRect,
+    public init(frame: CGRect,
                          markdownString: String,
                          openLinksInBrowser: Bool,
                          templateBundle: Bundle? = nil,
