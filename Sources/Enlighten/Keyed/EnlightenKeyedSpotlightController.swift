@@ -7,6 +7,7 @@
 //
 
 import Cocoa
+import Down
 
 /// The controller for a spotlight-based onboarding presentation.
 ///
